@@ -5,8 +5,6 @@ const mongoose = require("mongoose");
 
 const residentRouter = express.Router();
 
-residentRouter.use(bodyParser.json());
-
 residentRouter
   .route("/")
 
