@@ -11,22 +11,11 @@ var app = express();
 
 const mongoose = require("mongoose");
 
-const url = "mongodb://localhost:27017/parking";
-const connect = mongoose.connect(url);
-connect.then(
-  db => {
-    console.log("Connected correctly to server");
-  },
-  err => {
-    console.log(err);
-  }
-);
-
-//const Dishes = require('./models/dishes');
-
-// view engine setup
-app.set("views", path.join(__dirname, "views"));
-app.set("view engine", "jade");
+var dev_db_url = "mongodb://127.0.0.1/parking";
+var mongoDB = process.env.MONGODB_URI || dev_db_url;
+mongoose.connect(mongoDB, { useNewUrlParser: true });
+var db = mongoose.connection;
+db.on("error", console.error.bind(console, "MongoDB connection error:"));
 
 app.use(logger("dev"));
 app.use(express.json());
@@ -51,7 +40,7 @@ app.use(function(err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
-  res.render("error");
+  res.send("error");
 });
 
 module.exports = app;
