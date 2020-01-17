@@ -23,7 +23,7 @@ residentRouter
     Residents.create(req.body)
       .then(
         resident => {
-          console.log("resident Created ", dish);
+          console.log("resident Created ", resident);
           res.statusCode = 200;
 
           res.json(resident);
@@ -52,7 +52,7 @@ residentRouter
 residentRouter
   .route("/:residentNo")
   .get((req, res, next) => {
-    Residents.findById(req.params.dishId)
+    Residents.findById(req.params.residentNo)
       .then(
         resident => {
           res.statusCode = 200;
