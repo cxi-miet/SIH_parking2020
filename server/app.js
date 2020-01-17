@@ -12,7 +12,8 @@ var app = express();
 
 const mongoose = require("mongoose");
 
-var dev_db_url = "mongodb://127.0.0.1/parking";
+var dev_db_url =
+  "mongodb+srv://sihuser:sih_2020@cluster0-mwvql.mongodb.net/test?retryWrites=true&w=majority";
 var mongoDB = process.env.MONGODB_URI || dev_db_url;
 mongoose.connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true });
 var db = mongoose.connection;
