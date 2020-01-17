@@ -1,6 +1,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
+const Residents = require("../models/residents");
 
 const residentRouter = express.Router();
 
@@ -9,15 +10,15 @@ residentRouter
 
   .get((req, res, next) => {
     Residents.find({})
-      .then(
-        residents => {
-          res.statusCode = 200;
+      .then(residents => {
+        res.statusCode = 200;
 
-          res.json(residents);
-        },
-        err => next(err)
-      )
-      .catch(err => next(err));
+        res.json(residents);
+      })
+      .catch(err => {
+        console.log(err);
+        next(err);
+      });
   })
   .post((req, res, next) => {
     Residents.create(req.body)
