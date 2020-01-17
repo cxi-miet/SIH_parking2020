@@ -7,7 +7,7 @@ validateNumberRouter
   .route("/")
 
   .get((req, res, next) => {
-    var regex = /^[A-Z]{2}\d{2}[A-Z]{2}\d{4}$/;
+    var regex = /^[A-Z]{2}\d{2}[A-Z]{1,2}\d{4}$/;
     if (regex.test(req.body.number)) {
       Residents.findOne({ family_members: 5 }, (err, result) => {
         if (err) return next(err);
