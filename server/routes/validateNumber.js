@@ -7,26 +7,34 @@ validateNumberRouter
   .route("/")
 
   .get((req, res, next) => {
-    Residents.findOne({ family_members: 5 }, (err, result) => {
-      if (err) return next(err);
-      if (!result) {
-        res
-          .status(401)
+    var regex = /^[A-Z]{2}\d{2}[A-Z]{2}\d{4}$/;
+    if (regex.test(req.body.number)) {
+      Residents.findOne({ family_members: 5 }, (err, result) => {
+        if (err) return next(err);
+        if (!result) {
+          res
+            .status(401)
 
-          .json({
-            success: false,
-            message: "User is not a resident of this building"
-          });
-      } else {
-        res
-          .status(200)
+            .json({
+              success: false,
+              message: "User is not a resident of this building"
+            });
+        } else {
+          res
+            .status(200)
 
-          .json({
-            success: true,
-            message: "User is a Resident of this building!"
-          });
-      }
-    });
+            .json({
+              success: true,
+              message: "User is a Resident of this building!"
+            });
+        }
+      });
+    } else {
+      res.status(400).json({
+        success: false,
+        message: "Not a valid number"
+      });
+    }
   })
 
   .post((req, res, next) => {
