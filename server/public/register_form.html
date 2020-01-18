@@ -1,0 +1,202 @@
+<html>
+  <head>
+    <title>Registeration</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        background: #0f0c29; /* fallback for old browsers */
+        background: -webkit-linear-gradient(
+          to right,
+          #24243e,
+          #302b63,
+          #0f0c29
+        ); /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(
+          to right,
+          #24243e,
+          #302b63,
+          #0f0c29
+        ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        text-align: center;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+      }
+      h1 {
+        color: antiquewhite;
+        font-weight: bold;
+        font-size: 2em;
+        text-align: center;
+        padding: 2px;
+        margin: auto;
+        padding-bottom: 20px;
+        padding-top: 20px;
+      }
+      #form_outer {
+        background-color: azure;
+        margin: 0 auto;
+        width: 75%;
+        max-width: 800px;
+        padding: 20px;
+      }
+      .labels {
+        display: inline-block;
+        text-align: right;
+        width: 40%;
+        padding: 12px 12px 12px 0;
+        vertical-align: top;
+        margin-top: 10px;
+      }
+      #describe {
+        font-weight: bold;
+      }
+      .right {
+        display: inline-block;
+        text-align: left;
+        width: 48%;
+        vertical-align: middle;
+      }
+      .ifield {
+        height: 40px;
+        width: 280px;
+        padding: 5px;
+        margin: 10px;
+        border: 1px solid #c0c0c0;
+        border-radius: 2px;
+        background-color: lavenderblush;
+      }
+      .input {
+        padding: 30px;
+        margin: 10px;
+        height: 70px;
+        width: 300px;
+        border-radius: 2px;
+        border: 2px solid ridge;
+      }
+      #submit {
+        background-color: forestgreen;
+        border-radius: 4px;
+        color: white;
+        font-size: 1em;
+        height: 40px;
+        width: 96px;
+        margin: 10px;
+        border: 0px solid;
+      }
+      #submit:hover {
+        background-color: darkgreen;
+      }
+      @media screen and (max-width: 800px) {
+        .ifield {
+          width: 80%;
+        }
+        .input {
+          width: 80%;
+        }
+        select,
+        #prefers {
+          width: 80%;
+        }
+      }
+      @media screen and (max-width: 500px) {
+        .ifield,
+        .input,
+        select {
+          width: 100%;
+        }
+        .labels {
+          text-align: left;
+          width: 100%;
+        }
+        .right {
+          float: left;
+          width: 90%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="f1">Register</h1>
+    <div id="form_outer">
+      <p id="describe">Register yourself !</p>
+      <form id="entry_form" method="POST" action="/register">
+        <div class="row_tab">
+          <div class="labels">
+            <label for="name">Name:</label>
+          </div>
+          <div class="right">
+            <input
+              type="text"
+              autofocus
+              name="name"
+              id="name"
+              class="ifield"
+              placeholder="Enter your name"
+            />
+          </div>
+        </div>
+        <div class="row_tab">
+          <div class="labels">
+            <label for="address">Address:</label>
+          </div>
+          <div class="right">
+            <input
+              type="text"
+              autofocus
+              name="resident_number"
+              id="address"
+              class="ifield"
+              placeholder="Enter your address"
+            />
+          </div>
+        </div>
+        <div class="row_tab">
+          <div class="labels">
+            <label for="phone">Contact Number:</label>
+          </div>
+          <div class="right">
+            <input
+              type="text"
+              autofocus
+              name="phone_number"
+              id="phone"
+              class="ifield"
+              placeholder="Enter your number"
+            />
+          </div>
+        </div>
+        <div class="row_tab">
+          <div class="labels">
+            <label for="car">Vehicle Numbers:</label>
+          </div>
+          <div class="right">
+            <input
+              type="text"
+              autofocus
+              name="vehicle_numbers"
+              id="car"
+              class="ifield"
+              placeholder="Enter all your vehicle numbers"
+            />
+          </div>
+        </div>
+        <div class="row_tab">
+          <div class="labels">
+            <label for="fam">Number of Family Members:</label>
+          </div>
+          <div class="right">
+            <input
+              type="text"
+              autofocus
+              name="family_members"
+              id="fam"
+              class="ifield"
+              placeholder="Enter a number"
+            />
+          </div>
+        </div>
+        <button id="submit" type="submit">Submit</button>
+      </form>
+    </div>
+  </body>
+</html>
