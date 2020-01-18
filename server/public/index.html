@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Parking</title>
+</head>
+
+<body>
+    <fieldset>
+        <legend>Add Resident</legend>
+        <form method="POST" action="/register">
+            <input name="name" type="text" placeholder="Enter Name">
+        </form>
+    </fieldset>
+    <br>
+    <fieldset>
+        <legend>Search Number</legend>
+        <form method="POST" action="/validateNumber">
+            <input name="number" type="text">
+        </form>
+    </fieldset>
+    <br>
+    <a href="http://localhost:3000/monitor.html" target="_blank">Click here to go to the traffic monitoring system</a>
+</body>
+
+</html>

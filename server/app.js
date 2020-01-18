@@ -3,13 +3,13 @@ var express = require("express");
 var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
-
+var app = express();
+//var traffic = require("./routes/traffic");
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
 var residentRouter = require("./routes/residentRouter");
 var validateNumberRouter = require("./routes/validateNumber");
-var app = express();
-
+var myEmitter = require("./util/emitter");
 const mongoose = require("mongoose");
 
 var dev_db_url =
@@ -24,7 +24,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
-
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
 app.use("/register", residentRouter);
@@ -46,4 +45,38 @@ app.use(function(err, req, res, next) {
   res.send("error");
 });
 
+const WebSocket = require("ws");
+
+const wss = new WebSocket.Server({ port: 8080 });
+
+wss.on("connection", function(ws) {
+  ws.send("<h5>MONITORING...</h5>");
+  myEmitter.on("vehicle", (number, result) => {
+    console.log(number, result);
+    ws.send(number + " is a resident : " + result);
+  });
+  ws.on("message", function(message) {
+    console.log("received: %s", message);
+  });
+});
+
 module.exports = app;
+
+/*// Node.js WebSocket server script
+const http = require('http');
+const WebSocketServer = require('websocket').server;
+const server = http.createServer();
+server.listen(9898);
+const wsServer = new WebSocketServer({
+    httpServer: server
+});
+wsServer.on('request', function(request) {
+    const connection = request.accept(null, request.origin);
+    connection.on('message', function(message) {
+      console.log('Received Message:', message.utf8Data);
+      connection.sendUTF('Hi this is WebSocket server!');
+    });
+    connection.on('close', function(reasonCode, description) {
+        console.log('Client has disconnected.');
+    });
+});*/

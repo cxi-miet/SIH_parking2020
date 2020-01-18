@@ -2,7 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const Residents = require("../models/residents");
 const validateNumberRouter = express.Router();
-
+const myEmitter = require("../util/emitter");
 validateNumberRouter
   .route("/")
 
@@ -11,22 +11,11 @@ validateNumberRouter
     if (regex.test(req.body.number)) {
       Residents.findOne({ vehicle_numbers: req.body.number }, (err, result) => {
         if (err) return next(err);
+        myEmitter.emit("vehicle", req.body.number, Boolean(result));
         if (!result) {
-          res
-            .status(401)
-
-            .json({
-              success: false,
-              message: "User is not a resident of this building"
-            });
+          res.redirect("http://localhost:3000");
         } else {
-          res
-            .status(200)
-
-            .json({
-              success: true,
-              message: "User is a Resident of this building!"
-            });
+          res.redirect("http://localhost:3000");
         }
       });
     } else {
