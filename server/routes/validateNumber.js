@@ -6,10 +6,10 @@ const validateNumberRouter = express.Router();
 validateNumberRouter
   .route("/")
 
-  .get((req, res, next) => {
+  .post((req, res, next) => {
     var regex = /^[A-Z]{2}\d{2}[A-Z]{1,2}\d{4}$/;
     if (regex.test(req.body.number)) {
-      Residents.findOne({ family_members: 5 }, (err, result) => {
+      Residents.findOne({ vehicle_numbers: req.body.number }, (err, result) => {
         if (err) return next(err);
         if (!result) {
           res
@@ -37,9 +37,9 @@ validateNumberRouter
     }
   })
 
-  .post((req, res, next) => {
+  .get((req, res, next) => {
     res.statusCode = 403;
-    res.end("POST operation not supported on /ValidateResident");
+    res.end("GET operation not supported on /ValidateResident");
   })
   .put((req, res, next) => {
     res.statusCode = 403;
