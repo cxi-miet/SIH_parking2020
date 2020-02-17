@@ -1,9 +1,9 @@
 # Vehicle Identification and Monitoring using Number Plate
 **Organisation name :** MIXORG
-**Problem Statement :** Create an affordable solution through image processing of number plates of vehicles for the detection, identification and monitoring of vehicles in different scenarios such as residential societies, tolls, business complex, parking spaces etc.
-**Technology Bucket :** Security & Surveillance
-**Category :** Software
-**Presented By :** CXI
+**Problem Statement :** Create an affordable solution through image processing of number plates of vehicles for the detection, identification and monitoring of vehicles in different scenarios such as residential societies, tolls, business complex, parking spaces etc.  
+**Technology Bucket :** Security & Surveillance  
+**Category :** Software  
+**Team Name :** CXI
 
 ## Installing required Python libraries
 1. Install Python3
