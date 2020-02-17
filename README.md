@@ -5,6 +5,8 @@
 **Category :** Software  
 **Team Name :** CXI
 
+## See the working demo of prototype here: https://youtu.be/_41RqYSxKhs
+
 ## Installing required Python libraries
 1. Install Python3
 2. pip install requests
