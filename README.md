@@ -1,4 +1,25 @@
-# Steps to run the server
+# Vehicle Identification and Monitoring using Number Plate
+**Organisation name :** MIXORG
+**Problem Statement :** Create an affordable solution through image processing of number plates of vehicles for the detection, identification and monitoring of vehicles in different scenarios such as residential societies, tolls, business complex, parking spaces etc.
+**Technology Bucket :** Security & Surveillance
+**Category :** Software
+**Presented By :** CXI
+
+## Installing required Python libraries
+1. Install Python3
+2. pip install requests
+3. pip install python-csv
+4. pip install opencv-python
+5. pip install numpy
+6. pip install Pillow
+7. pip install pytesseract
+8. pip3 install glob3
+
+## Steps to run the prototype
+1. Give the path of video in "**vidcap = cv2.VideoCapture('YOUR_FILE_PATH')**" in v1.0.py
+2. Run **v1.0.py**
+
+## Steps to run the server
 
 1. Clone the repository.
 2. Open the repository using terminal or CMD.
